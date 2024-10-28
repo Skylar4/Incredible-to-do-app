@@ -7,11 +7,20 @@ import {
     ScrollView, 
     StyleSheet  
 } from 'react-native';
-export default ToDoList =  () =>{
+export default ToDoList =  ({tasks}) =>{
 
     return(
-<ScrollView>
-<Pressable>
+
+ 
+<ScrollView style={styles.task}>
+  {
+    tasks.map((task) => (
+      <div >
+      <Text style={styles.taskText}>{task}</Text>
+      </div>
+      ))
+  }
+{/* <Pressable>
   <View style={[styles.task, styles.completed]}>
     <Text style={styles.taskText}>Do laundry</Text>
   </View>
@@ -25,7 +34,7 @@ export default ToDoList =  () =>{
   <View style={[styles.task, styles.completed]}>
     <Text style={styles.taskText}>Walk dog</Text>
   </View>
-</Pressable>
+</Pressable> */}
 </ScrollView>
     )
 }
@@ -41,7 +50,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#e0e0e0',
     },
     taskText: {
-      fontSize: 16,
+      fontSize: 24,
     },
 
   });
