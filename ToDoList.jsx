@@ -12,12 +12,12 @@ export default ToDoList =  ({tasks}) =>{
     return(
 
  
-<ScrollView style={styles.task}>
+<ScrollView>
   {
     tasks.map((task) => (
-      <div >
+      <View style={styles.task} >
       <Text style={styles.taskText}>{task}</Text>
-      </div>
+      </View>
       ))
   }
 {/* <Pressable>
@@ -43,8 +43,9 @@ export default ToDoList =  ({tasks}) =>{
 const styles = StyleSheet.create({
     task: {
       padding: 10,
-      borderBottomWidth: 1,
+      borderWidth: 2,
       borderColor: '#ccc',
+      marginTop:10
     },
     completed: {
       backgroundColor: '#e0e0e0',

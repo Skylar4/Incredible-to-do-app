@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   TextInput,
@@ -8,14 +8,24 @@ import {
 
 
 
-export default ToDoForm =()=>{
+export default ToDoForm =({addTaskFunction})=>{
+
+  const [task, setTask] = useState();
+const handleAddTask = () => {
+
+  addTaskFunction(task)
+}
+
+  
 return(
     <View style={styles.form}>
     <TextInput
     style={styles.input}
     placeholder="Add a new task..."
+    value={task}
+    onChangeText={setTask}
     />
-    <Button title="Add" />
+    <Button title="Add" onPress={handleAddTask} />
     </View>
 )
 }

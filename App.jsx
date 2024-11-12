@@ -15,12 +15,16 @@ function App() {
     'Walk dog']
 
   const [todolist, settodolist] = useState(todolistarray);
+  const addTask = (task) =>{
+    const oldlist = todolist
+    settodolist([...oldlist, task])
 
+  }
 
   return (
-    <View>
+    <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
       <ToDoList tasks={todolist}/>
-      <ToDoForm/>
+      <ToDoForm addTaskFunction ={addTask}/>
     </View>
   );
 }
