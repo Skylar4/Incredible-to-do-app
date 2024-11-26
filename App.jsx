@@ -3,29 +3,30 @@
  *
  * 
  */
-import ToDoList from './ToDoList';
-import ToDoForm from './ToDoForm';
 import React from 'react';
-import{ View,  } from 'react-native'
-import { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/homescreen'
+import AboutScreen from './screens/aboutscreen'
+
+
 function App() {
-  let todolistarray = [  
-    'Do laundry',
-    'Go to gym',
-    'Walk dog']
-
-  const [todolist, settodolist] = useState(todolistarray);
-  const addTask = (task) =>{
-    const oldlist = todolist
-    settodolist([...oldlist, task])
-
-  }
+  const Stack = createStackNavigator();
 
   return (
-    <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
-      <ToDoList tasks={todolist}/>
-      <ToDoForm addTaskFunction ={addTask}/>
-    </View>
+
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+
+
   );
 }
 export default App;
+{/* <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
+<ToDoList tasks={todolist}/>
+<ToDoForm addTaskFunction ={addTask}/>
+</View> */}
